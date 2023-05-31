@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tianyi\'s Android Labs</string>
+    <string name="button1">bouton1</string>
+    <string name="button2">bouton2</string>
+    <string name="button3">bouton3</string>
+</resources>
