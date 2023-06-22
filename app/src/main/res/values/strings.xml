@@ -1,14 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Tianyi\'s Android Labs</string>
     <string name="hellp_message" translatable="false">Hello world!</string>
-    <string name="button_message" translatable="false">I\'m a button</string><string name="editmessage" translatable="false">I\'m an EditText</string>
+    <string name="button_message" translatable="false">I\'m a button</string>
+    <string name="editmessage" translatable="false">I\'m an EditText</string>
     <string name="hinttext" translatable="false">Write something here</string>
     <string name="compound_message" translatable="false">Do you drink coffee?</string>
     <string name="Spin_flag" translatable="false" />
     <string name="spin_message" translatable="false" />
-    <string name="button1" translatable="false" >button1</string>
-    <string name="button2" translatable="false" >button2</string>
-    <string name="button3" translatable="false" >button3</string>
+    <string name="button1" translatable="false">button1</string>
+    <string name="button2" translatable="false">button2</string>
+    <string name="button3" translatable="false">button3</string>
+    //<string name="welcome_back" translatable="false">Welcome back %s</string>
 
 
 </resources>
