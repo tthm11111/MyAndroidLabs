@@ -1,81 +1,137 @@
 package ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.os.Bundle;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import algonquin.cst2335.chen0914.R;
-import algonquin.cst2335.chen0914.databinding.ActivityMainBinding;
-import data.MainViewModel;
 
 
+/**
+ * @author cty
+ * @version  1.0
+ */
 public class MainActivity extends AppCompatActivity {
 
-    //private ActivityMainBinding variableBinding;
-    //private MainViewModel model;
-
-    ImageView imageView;
-    Switch sw;
-
+    /**
+     *  This holds the text at the center of the screen
+     */
+    TextView tv =null;
+    /**
+     *  This hold the editText
+     */
+    EditText et = null;
+    /**
+     * This holds the button
+     */
+    Button btn =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageView = findViewById(R.id.flagview);
-        sw = findViewById(R.id.switch1);
+       tv = findViewById(R.id.textViewLab5);
+       et = findViewById(R.id.editTextLab5);
+       btn = findViewById(R.id.buttonLab5);
 
-        sw.setOnCheckedChangeListener( (btn,isChecked)-> {
-            if (isChecked){
-                RotateAnimation rotate = new RotateAnimation(0,360, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-                rotate.setDuration(5000);
-                rotate.setRepeatCount(Animation.INFINITE);
-                rotate.setInterpolator(new LinearInterpolator());
 
-                imageView.startAnimation(rotate);
-            }
-                else {
-                    imageView.clearAnimation();
+
+        btn.setOnClickListener( clk -> {
+            String password = et.getText().toString();
+            boolean isPasswordValid = checkPasswordComplexity(password);
+
+            if (isPasswordValid) {
+                tv.setText("Your password meets the requirements");
+            } else {
+                tv.setText("You shall not pass!");
             }
         });
-
-
-
-
-
-
-        //model = new ViewModelProvider(this).get(MainViewModel.class);
-
-        //variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        //setContentView(variableBinding.getRoot());
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
+
+    /** This function ...
+     *
+     * @param pw The String object that we are checking
+     * @return Returns true if ....
+     */
+    boolean checkPasswordComplexity(String pw) {
+        boolean foundUpperCase = false;
+        boolean foundLowerCase = false;
+        boolean foundNumber = false;
+        boolean foundSpecial = false;
+
+        for (int i = 0; i < pw.length(); i++) {
+            char c = pw.charAt(i);
+
+            if (Character.isUpperCase(c)) {
+                foundUpperCase = true;
+            } else if (Character.isLowerCase(c)) {
+                foundLowerCase = true;
+            } else if (Character.isDigit(c)) {
+                foundNumber = true;
+            } else {
+                foundSpecial = true;
+            }
+        }
+
+        if (!foundUpperCase)
+        {
+            Toast.makeText(this, "missing an upper case letter", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (!foundLowerCase)
+        {
+            Toast.makeText(this, "missing a lower case letter", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (!foundNumber)
+        {
+            Toast.makeText(this, "missing number", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else if (!foundSpecial)
+        {
+            Toast.makeText(this, "missing special", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else
+        {
+            return true; // only get here if they're all true
+        }
     }
+
+
+        boolean isSpecialCHaracter(char c){
+        switch (c)
+        {
+            case '#':
+            case '?':
+            case '*':
+                return true;
+            default:
+                return false;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
