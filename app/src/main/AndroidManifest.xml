@@ -11,10 +11,11 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false"></uses-feature>
-
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -27,17 +28,21 @@
         android:theme="@style/Theme.TianyisAndroidLabs"
         tools:targetApi="31">
         <activity
-            android:name="ui.SecondActivity"
-            android:exported="true" />
-        <activity
-            android:name="ui.MainActivity"
+            android:name=".ChatRoom"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="ui.SecondActivity"
+            android:exported="true" />
+        <activity
+            android:name="ui.MainActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

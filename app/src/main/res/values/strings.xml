@@ -10,7 +10,8 @@
     <string name="button1" translatable="false">button1</string>
     <string name="button2" translatable="false">button2</string>
     <string name="button3" translatable="false">button3</string>
-    //<string name="welcome_back" translatable="false">Welcome back %s</string>
+    //
+    <string name="welcome_back" translatable="false">Welcome back %s</string>
 
 
 </resources>
